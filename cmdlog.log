@@ -10,3 +10,15 @@
 0box-sdk        [DEBUG]  2024/06/19 16:00:00.603074 node.go:152: {"txn":"944b7f5e1ec357cd836616f5fb15a38ea33789dd7f1b970ba3124c07c01bffc9","round":37167,"balance":19337699297000000,"nonce":37}
 0box-sdk        [INFO]   2024/06/19 16:00:00.606046 sdk.go:1574: executing transaction 'new_allocation_request' with hash 50293d7e717af9be26ac244b930eec2357ceef47d9eff243abfeb72ad15092a5 
 0box-sdk        [INFO]   2024/06/19 16:00:00.606140 sdk.go:1575: estimated txn fee: 30000000
+0chain-core-sdk [INFO]   2024/06/19 17:16:33.990289 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:16:33.991325 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [31m[ERROR]  2024/06/19 17:16:35.016699 networkworker.go:51: Failed to update network details {error 26 0  get_network_details_error: Unable to get http request with 502 Bad Gateway}[0m
+0chain-core-sdk [INFO]   2024/06/19 17:16:35.055017 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:16:35.055244 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [31m[ERROR]  2024/06/19 17:16:35.878609 networkworker.go:51: Failed to update network details {error 26 0  get_network_details_error: Unable to get http request with 502 Bad Gateway}[0m
+0chain-core-sdk [INFO]   2024/06/19 17:16:47.059007 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:16:47.059107 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [31m[ERROR]  2024/06/19 17:16:47.849993 networkworker.go:51: Failed to update network details {error 26 0  get_network_details_error: Unable to get http request with 502 Bad Gateway}[0m
+0chain-core-sdk [INFO]   2024/06/19 17:16:47.880118 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:16:47.880277 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [31m[ERROR]  2024/06/19 17:16:48.664838 networkworker.go:51: Failed to update network details {error 26 0  get_network_details_error: Unable to get http request with 502 Bad Gateway}[0m

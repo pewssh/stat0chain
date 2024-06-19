@@ -37,12 +37,13 @@ logger.addHandler(handler)
 total_data_parity_max = 6
 
 def generate_random_file(index):
-    mB_500 = 524288000
-    mb_100= 104857600
-    GB_1= 1073741824
-    kB_500= 512000
-    return "file{}.txt".format([kB_500, mB_500, mb_100, GB_1][index]), [kB_500, mB_500, mb_100, GB_1][index]
-
+    # mB_500 = 524288000
+    # mb_100= 104857600
+    # GB_1= 1073741824
+    # kB_500= 512000
+    # files=['1 gb file.zip', '2.15 gb file.mp4', '5 gb file.zip', '200mbfile.pdf']
+    files=['200mbfile.pdf', 'file512000.txt']
+    return files[index], os.path.getsize(files[index])
 
 def create_allocation(data, parity):
     if data + parity > total_data_parity_max:
@@ -89,8 +90,8 @@ def create_allocation_upload_file(data, parity):
     base_size_in_bytes = 500 * KB
     num_files = 5
 
-    for i in range(1,2):
-        filename, size_in_bytes = generate_random_file(i)
+    for i in range(1,3):
+        filename, size_in_bytes = generate_random_file(i-1)
         logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes")
         start = time.time()
         try:
@@ -110,8 +111,8 @@ def create_allocation_upload_file(data, parity):
             logging.error(f"Benchmarking Failed with error: {str(e)}")
             break
 
-        finally:
-            subprocess.run("rm -rf {}".format(filename), shell=True)
+        # finally:
+            # subprocess.run("rm -rf {}".format(filename), shell=True)
     return appended_data
 
 # main method 
