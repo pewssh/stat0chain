@@ -8,7 +8,8 @@ import colorlog
 import uuid
 import statistics
 from collections import defaultdict
-
+import sys
+import os
 
 
 import pandas as pd
@@ -40,6 +41,13 @@ def generate_random_file(filename, size_in_kb):
     with open(filename, 'w') as file:
         file.write(content)
 
+# def generate_random_file(filename, size_in_bytes):
+    # random_bytes = os.urandom(size_in_bytes)
+    # with open(filename, 'wb') as file:
+        # file.write(random_bytes)
+
+
+
 def create_allocation(data, parity):
     if data + parity > total_data_parity_max:
         return "Data + Parity should be less than 46"
@@ -47,7 +55,7 @@ def create_allocation(data, parity):
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     print("Output:", result.stdout)
     allocationId = result.stdout.split(" ")[-1].strip()
-    print( "Allocation created with data: {} and parity: {}".format(data, parity))
+    logging.info( "Allocation :{} created with data: {} and parity: {}".format(allocationId, data, parity))
     return allocationId
 
 
@@ -81,8 +89,12 @@ def create_allocation_upload_file(data, parity):
     appended_data =[]
     allocationId = create_allocation(data, parity)
 
-    for i in range(1,4):
-        size_in_bytes = (500 * KB) + (i * (1 * GB - 500 * KB) // 5)
+    max_size_in_bytes = 0.5 * GB
+    base_size_in_bytes = 500 * KB
+    num_files = 5
+
+    for i in range(1,1):
+        size_in_bytes = base_size_in_bytes + int(i * (max_size_in_bytes - base_size_in_bytes) / (num_files - 1))
         filename = "file_new{}.txt".format(uuid.uuid4())
         logging.info(f"Generating random file {filename} of size {size_in_bytes} bytes")
         generate_random_file(filename, size_in_bytes)
@@ -157,8 +169,14 @@ def draw_plot():
 
 if __name__ == "__main__":
     # get value from terminal
-    data = int(input("Enter the data: "))
-    parity = int(input("Enter the parity: "))
+    try:
+        data = int(sys.argv[1])
+        parity = int(sys.argv[2])
+    except Exception as e:
+        print("Please provide data and parity as command line arguments")
+        print("Example: python3 main.py 2 2")
+        exit(1)
+
     cases = generate_data_parity(data, parity)
     cases= cases * 2
     cases.sort()
@@ -174,7 +192,6 @@ if __name__ == "__main__":
         writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Time Taken"])
         writer.writeheader()
         writer.writerows(final_result)
-
 
     # call draw plot
     draw_plot()
