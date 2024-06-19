@@ -136,7 +136,7 @@ def draw_plot(data, parity):
     df = pd.read_csv('benchmark.csv')
     print(df.head())
 
-    fig, ax = plt.subplots(figsize=(16, 10))
+    fig, ax = plt.subplots(figsize=(20, 10))
 
     groups = df.groupby(['Data', 'Parity', 'File Size'])
     for key, group in groups:
@@ -152,7 +152,7 @@ def draw_plot(data, parity):
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
-    plt.savefig(f'plot{data}-{parity}.png', dpi=200)  
+    plt.savefig(f'plot{data}-{parity}.png', dpi=100)  
 
 
 
