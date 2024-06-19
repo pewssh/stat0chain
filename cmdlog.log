@@ -3184,3 +3184,11 @@
 0box-sdk        [DEBUG]  2024/06/19 13:48:39.849532 node.go:152: {"txn":"54f589a324a134e2b6980698fc08b3056ea215b5c7fc048713282e2bec60fa1d","round":360407,"balance":19335899027000000,"nonce":46}
 0box-sdk        [INFO]   2024/06/19 13:48:39.850267 sdk.go:1574: executing transaction 'new_allocation_request' with hash 6e4eb257452b2bfb79e4d36135f62f022886aa157993195e3442b6e6f803a3b7 
 0box-sdk        [INFO]   2024/06/19 13:48:39.850294 sdk.go:1575: estimated txn fee: 30000000
+0chain-core-sdk [INFO]   2024/06/19 14:02:13.559312 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 14:02:13.560837 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 14:02:14.349176 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 14:02:15.161973 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3b.zus.network/sharder01","https://test3a.zus.network/sharder01"]}
+0chain-core-sdk [INFO]   2024/06/19 14:03:07.628996 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 14:03:07.630647 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 14:03:08.522649 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 14:03:09.319549 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3a.zus.network/sharder01","https://test3b.zus.network/sharder01"]}

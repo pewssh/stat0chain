@@ -81,7 +81,7 @@ def create_allocation_upload_file(data, parity):
     appended_data =[]
     allocationId = create_allocation(data, parity)
 
-    for i in range(1,6):
+    for i in range(1,4):
         size_in_bytes = (500 * KB) + (i * (1 * GB - 500 * KB) // 5)
         filename = "file_new{}.txt".format(uuid.uuid4())
         logging.info(f"Generating random file {filename} of size {size_in_bytes} bytes")
@@ -156,7 +156,10 @@ def draw_plot():
 
 
 if __name__ == "__main__":
-    cases = generate_data_parity(10, 10)
+    # get value from terminal
+    data = int(input("Enter the data: "))
+    parity = int(input("Enter the parity: "))
+    cases = generate_data_parity(data, parity)
     cases= cases * 2
     cases.sort()
     total_result=   []
