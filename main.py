@@ -107,7 +107,7 @@ def create_allocation_upload_file(data, parity):
                 "Parity": parity,
                 "File Size": float(size_in_bytes/ (1024 ** 2)),
                 "Time": str(float(end - start)) + "seconds",
-                "Allocation": allocationId,
+                # "Allocation": allocationId,
             }
             appended_data.append(row)
         except Exception as e:
@@ -121,10 +121,9 @@ def mean_data(res):
     grouped_data = defaultdict(list)
 
     for record in res:
-        keys = (record['Data'], record['Parity'], record['File Size'], record['Allocation'])  # Extract keys as a tuple
+        keys = (record['Data'], record['Parity'], record['File Size'])  # Extract keys as a tuple
         seconds_str = record['Time'].replace('seconds', '').strip()  # Remove 'seconds' and strip spaces
         seconds = float(seconds_str)   # Convert to float
-        
         grouped_data[keys].append(seconds)
 
     # calculate mean
@@ -133,7 +132,7 @@ def mean_data(res):
         mean_time = statistics.mean(times)
         mean_results[keys] = mean_time
 
-    result_list = [{'Data':key[0], 'Parity':key[1], 'File Size': key[2], 'Allocation': key[3],  'Mean Time Taken': str(value) + 'seconds'} for key, value in mean_results.items()]
+    result_list = [{'Data':key[0], 'Parity':key[1], 'File Size': key[2],  'Mean Time Taken': str(value) + 'seconds'} for key, value in mean_results.items()]
     return result_list
 
 
@@ -192,9 +191,8 @@ if __name__ == "__main__":
     final_result = mean_data(total_result)
 
     sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
-
     with open(f"benchmark{data}-{parity}.csv", "w") as file:
-        writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken", "Allocation"])
+        writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
         writer.writeheader()
         writer.writerows(sorted_result)
 
