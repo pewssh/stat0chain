@@ -92,13 +92,15 @@ def create_allocation_upload_file(data, parity):
 
     for i in range(1,len(files)+1):
         filename, size_in_bytes = generate_random_file(i-1)
-        logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes")
         start = time.time()
+
+        logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes  started at : {start}")
         try:
             logging.info(f"Uploading file {filename} of size {size_in_bytes} bytes")
             upload_file(allocationId, filename, filename)
             end = time.time()
-            print("Time taken to write file: ", end - start)
+            logger.info("Time when file upload completed: ", end)
+            logger.info("Time taken to write file: ", end - start)
 
             row = {
                 "Data": data,
