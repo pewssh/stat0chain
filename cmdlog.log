@@ -3152,3 +3152,35 @@
 0box-sdk        [DEBUG]  2024/06/19 13:28:51.313453 node.go:152: {"txn":"0eb3421f2e259abb1aa5716ad255b9220a27e24c465d6f868d1917e51089dafa","round":354629,"balance":19336099087000000,"nonce":44}
 0box-sdk        [INFO]   2024/06/19 13:28:51.314669 sdk.go:1574: executing transaction 'new_allocation_request' with hash 0ff7926a83c7d37c519cdbc566b79a98e48c3335b008c627150233a595623b93 
 0box-sdk        [INFO]   2024/06/19 13:28:51.314713 sdk.go:1575: estimated txn fee: 30000000
+0chain-core-sdk [INFO]   2024/06/19 13:44:37.894636 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 13:44:37.896547 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 13:44:38.787739 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 13:44:39.625202 networkworker.go:119: Get network result:{"miners":["https://test3a.zus.network/miner01","https://test3a.zus.network/miner02","https://test3b.zus.network/miner02","https://test3b.zus.network/miner01"],"sharders":["https://test3a.zus.network/sharder01","https://test3b.zus.network/sharder01"]}
+0chain-core-sdk [INFO]   2024/06/19 13:45:19.291929 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 13:45:19.293447 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 13:45:20.027268 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 13:45:20.758133 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02","https://test3b.zus.network/miner02"],"sharders":["https://test3a.zus.network/sharder01","https://test3b.zus.network/sharder01"]}
+0chain-core-sdk [INFO]   2024/06/19 13:47:03.584740 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 13:47:03.586560 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 13:47:04.303468 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 13:47:05.108184 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3b.zus.network/sharder01","https://test3a.zus.network/sharder01"]}
+0box-sdk        [INFO]   2024/06/19 13:47:07.002317 node.go:194: Query from https://test3b.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802
+0box-sdk        [INFO]   2024/06/19 13:47:07.002359 node.go:194: Query from https://test3a.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802
+0box-sdk        [DEBUG]  2024/06/19 13:47:07.179103 node.go:147: https://test3a.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802200 OK
+0box-sdk        [DEBUG]  2024/06/19 13:47:07.179221 node.go:152: {"txn":"0ff7926a83c7d37c519cdbc566b79a98e48c3335b008c627150233a595623b93","round":355546,"balance":19335999057000000,"nonce":45}
+0box-sdk        [DEBUG]  2024/06/19 13:47:07.189258 node.go:147: https://test3b.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802200 OK
+0box-sdk        [DEBUG]  2024/06/19 13:47:07.189381 node.go:152: {"txn":"0ff7926a83c7d37c519cdbc566b79a98e48c3335b008c627150233a595623b93","round":355546,"balance":19335999057000000,"nonce":45}
+0box-sdk        [INFO]   2024/06/19 13:47:07.192729 sdk.go:1574: executing transaction 'new_allocation_request' with hash 54f589a324a134e2b6980698fc08b3056ea215b5c7fc048713282e2bec60fa1d 
+0box-sdk        [INFO]   2024/06/19 13:47:07.192815 sdk.go:1575: estimated txn fee: 30000000
+0chain-core-sdk [INFO]   2024/06/19 13:48:36.265309 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 13:48:36.289004 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 13:48:37.001754 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 13:48:37.731573 networkworker.go:119: Get network result:{"miners":["https://test3a.zus.network/miner01","https://test3a.zus.network/miner02","https://test3b.zus.network/miner02","https://test3b.zus.network/miner01"],"sharders":["https://test3b.zus.network/sharder01","https://test3a.zus.network/sharder01"]}
+0box-sdk        [INFO]   2024/06/19 13:48:39.673313 node.go:194: Query from https://test3b.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802
+0box-sdk        [INFO]   2024/06/19 13:48:39.673299 node.go:194: Query from https://test3a.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802
+0box-sdk        [DEBUG]  2024/06/19 13:48:39.849452 node.go:147: https://test3a.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802200 OK
+0box-sdk        [DEBUG]  2024/06/19 13:48:39.849497 node.go:152: {"txn":"54f589a324a134e2b6980698fc08b3056ea215b5c7fc048713282e2bec60fa1d","round":360407,"balance":19335899027000000,"nonce":46}
+0box-sdk        [DEBUG]  2024/06/19 13:48:39.849524 node.go:147: https://test3b.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802200 OK
+0box-sdk        [DEBUG]  2024/06/19 13:48:39.849532 node.go:152: {"txn":"54f589a324a134e2b6980698fc08b3056ea215b5c7fc048713282e2bec60fa1d","round":360407,"balance":19335899027000000,"nonce":46}
+0box-sdk        [INFO]   2024/06/19 13:48:39.850267 sdk.go:1574: executing transaction 'new_allocation_request' with hash 6e4eb257452b2bfb79e4d36135f62f022886aa157993195e3442b6e6f803a3b7 
+0box-sdk        [INFO]   2024/06/19 13:48:39.850294 sdk.go:1575: estimated txn fee: 30000000

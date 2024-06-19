@@ -84,9 +84,12 @@ def create_allocation_upload_file(data, parity):
     for i in range(1,6):
         size_in_bytes = (500 * KB) + (i * (1 * GB - 500 * KB) // 5)
         filename = "file_new{}.txt".format(uuid.uuid4())
+        logging.info(f"Generating random file {filename} of size {size_in_bytes} bytes")
         generate_random_file(filename, size_in_bytes)
+        logging.info(f"File Generated {filename} of size {size_in_bytes} bytes")
         start = time.time()
         try:
+            logging.info(f"Uploading file {filename} of size {size_in_bytes} bytes")
             upload_file(allocationId, filename, filename)
             end = time.time()
             print("Time taken to write file: ", end - start)
