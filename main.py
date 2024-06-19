@@ -34,7 +34,7 @@ handler.setFormatter(colorlog.ColoredFormatter(
 ))
 logger.addHandler(handler)
 
-total_data_parity_max = 6
+total_data_parity_max = 40
 
 def generate_random_file(index):
     files = os.listdir()
