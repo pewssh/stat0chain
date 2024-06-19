@@ -141,7 +141,7 @@ def draw_plot():
     groups = df.groupby(['Data', 'Parity', 'File Size'])
     for key, group in groups:
         label = f"({key[0]}, {key[1]}, {key[2]})"
-        ax.plot(group.index, group['Time Taken'], marker='o', linestyle='-', label=label)
+        ax.plot(group.index, group['Mean Time Taken'], marker='o', linestyle='-', label=label)
 
     ax.set_xlabel('Configuration combination of data, parity and size')
     ax.set_ylabel('Time Taken In seconds')
