@@ -151,7 +151,7 @@ def draw_plot():
 
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
-    plt.tight_layout()
+    # plt.tight_layout()
     plt.savefig('plot.png', dpi=300)  
 
 
