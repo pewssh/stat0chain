@@ -36,16 +36,12 @@ logger.addHandler(handler)
 
 total_data_parity_max = 6
 
-def generate_random_file(filename, size_in_kb):
-    content = ''.join(random.choices(string.ascii_letters + string.digits, k=size_in_kb * 1024))
-    with open(filename, 'w') as file:
-        file.write(content)
-
-# def generate_random_file(filename, size_in_bytes):
-    # random_bytes = os.urandom(size_in_bytes)
-    # with open(filename, 'wb') as file:
-        # file.write(random_bytes)
-
+def generate_random_file(index):
+    mB_500 = 524288000
+    mb_100= 104857600
+    GB_1= 1073741824
+    kB_500= 512000
+    return "file{}.txt".format([kB_500, mB_500, mb_100, GB_1][index]), [kB_500, mB_500, mb_100, GB_1][index]
 
 
 def create_allocation(data, parity):
@@ -61,10 +57,10 @@ def create_allocation(data, parity):
 
 def generate_data_parity(data, parity):
     cases = []
-    i = max(data, parity)
-    j = min(data, parity)
-    for k in range(1, i+1):
-        for l in range(1, j+1):
+    # i = max(data, parity)
+    # j = min(data, parity)
+    for k in range(1, data+1):
+        for l in range(1, parity+1):
             cases.append((k, l))
 
     return cases
@@ -93,12 +89,9 @@ def create_allocation_upload_file(data, parity):
     base_size_in_bytes = 500 * KB
     num_files = 5
 
-    for i in range(1,1):
-        size_in_bytes = base_size_in_bytes + int(i * (max_size_in_bytes - base_size_in_bytes) / (num_files - 1))
-        filename = "file_new{}.txt".format(uuid.uuid4())
-        logging.info(f"Generating random file {filename} of size {size_in_bytes} bytes")
-        generate_random_file(filename, size_in_bytes)
-        logging.info(f"File Generated {filename} of size {size_in_bytes} bytes")
+    for i in range(1,2):
+        filename, size_in_bytes = generate_random_file(i)
+        logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes")
         start = time.time()
         try:
             logging.info(f"Uploading file {filename} of size {size_in_bytes} bytes")
