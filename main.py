@@ -87,10 +87,6 @@ def create_allocation_upload_file(data, parity):
     appended_data =[]
     allocationId = create_allocation(data, parity)
 
-    max_size_in_bytes = 0.5 * GB
-    base_size_in_bytes = 500 * KB
-    num_files = 5
-
     for i in range(1,3):
         filename, size_in_bytes = generate_random_file(i-1)
         logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes")
@@ -104,7 +100,7 @@ def create_allocation_upload_file(data, parity):
             row = {
                 "Data": data,
                 "Parity": parity,
-                "File Size": str(size_in_bytes/ (1024 ** 3)) + "MB",
+                "File Size": str(size_in_bytes/ (1024 ** 2)) + "MB",
                 "Time": str(float(end - start)) + "seconds"
             }
             appended_data.append(row)
@@ -112,8 +108,6 @@ def create_allocation_upload_file(data, parity):
             logging.error(f"Benchmarking Failed with error: {str(e)}")
             break
 
-        # finally:
-            # subprocess.run("rm -rf {}".format(filename), shell=True)
     return appended_data
 
 # main method 
