@@ -99,8 +99,8 @@ def create_allocation_upload_file(data, parity):
             logging.info(f"Uploading file {filename} of size {size_in_bytes} bytes")
             upload_file(allocationId, filename, filename)
             end = time.time()
-            logger.info("Time when file upload completed: ", end)
-            logger.info("Time taken to write file: ", end - start)
+            logger.info(f"Time when file upload completed:  {end}")
+            logger.info(f"Time taken to write file:  {end - start}")
 
             row = {
                 "Data": data,
