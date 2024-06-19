@@ -185,12 +185,14 @@ if __name__ == "__main__":
         total_result.extend(result)
 
     # calculate for mean
-        
+
     final_result = mean_data(total_result)
+    sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
+
     with open("benchmark.csv", "w") as file:
         writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
         writer.writeheader()
-        writer.writerows(final_result)
+        writer.writerows(sorted_result)
 
     # call draw plot
     draw_plot(data,parity=parity)
