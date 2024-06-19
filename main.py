@@ -42,6 +42,7 @@ def generate_random_file(index):
     # GB_1= 1073741824
     # kB_500= 512000
     # files=['1 gb file.zip', '2.15 gb file.mp4', '5 gb file.zip', '200mbfile.pdf']
+    # files=['200mbfile.pdf', 'file512000.txt']
     files=['200mbfile.pdf', 'file512000.txt']
     return files[index], os.path.getsize(files[index])
 
