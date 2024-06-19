@@ -92,8 +92,6 @@ def create_allocation_upload_file(data, parity):
 
     for i in range(1,len(files)+1):
         filename, size_in_bytes = generate_random_file(i-1)
-        breakpoint()
-        continue
         start = time.time()
 
         logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes  started at : {start}")
