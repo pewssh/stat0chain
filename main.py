@@ -132,11 +132,11 @@ def mean_data(res):
 
 
 
-def draw_plot():
+def draw_plot(data, parity):
     df = pd.read_csv('benchmark.csv')
     print(df.head())
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(12, 8))
 
     groups = df.groupby(['Data', 'Parity', 'File Size'])
     for key, group in groups:
@@ -152,7 +152,7 @@ def draw_plot():
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
-    plt.savefig('plot.png', dpi=300)  
+    plt.savefig('plot{data}-{parity}.png'.format(data, parity), dpi=600)  
 
 
 
@@ -183,4 +183,4 @@ if __name__ == "__main__":
         writer.writerows(final_result)
 
     # call draw plot
-    draw_plot()
+    draw_plot(data,parity=parity)
