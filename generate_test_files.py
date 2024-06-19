@@ -2,8 +2,8 @@
 import random
 import string
 
-def generate_random_file(filename, size_in_kb):
-    content = ''.join(random.choices(string.ascii_letters + string.digits, k=size_in_kb ))
+def generate_random_file(filename, size_in_b):
+    content = ''.join(random.choices(string.ascii_letters + string.digits, k=size_in_b ))
     with open(filename, 'w') as file:
         file.write(content)
 
