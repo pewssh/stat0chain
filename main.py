@@ -62,7 +62,8 @@ def generate_data_parity(data, parity,min=1):
     # j = min(data, parity)
     for k in range(min, data+1):
         for l in range(min, parity+1):
-            cases.append((k, l))
+            if k + l <= total_data_parity_max:
+                cases.append((k, l))
 
     return cases
 
