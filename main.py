@@ -106,7 +106,8 @@ def create_allocation_upload_file(data, parity):
                 "Data": data,
                 "Parity": parity,
                 "File Size": float(size_in_bytes/ (1024 ** 2)),
-                "Time": str(float(end - start)) + "seconds"
+                "Time": str(float(end - start)) + "seconds",
+                "Allocation": allocationId,
             }
             appended_data.append(row)
         except Exception as e:
