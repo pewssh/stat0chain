@@ -38,7 +38,6 @@ total_data_parity_max = 6
 
 def generate_random_file(index):
     files = os.listdir()
-    # if files name startwith dummy keep it
     files = [file for file in files if file.startswith("dummy")]
 
     if len(files) == 0:
@@ -87,7 +86,10 @@ def create_allocation_upload_file(data, parity):
     appended_data =[]
     allocationId = create_allocation(data, parity)
 
-    for i in range(1,3):
+    files = os.listdir()
+    files = [file for file in files if file.startswith("dummy")]
+
+    for i in range(1,len(files)+1):
         filename, size_in_bytes = generate_random_file(i-1)
         logging.info(f"Using File Generated {filename} of size {size_in_bytes} bytes")
         start = time.time()
@@ -136,7 +138,7 @@ def draw_plot(data, parity):
     df = pd.read_csv('benchmark.csv')
     print(df.head())
 
-    fig, ax = plt.subplots(figsize=(20, 10))
+    fig, ax = plt.subplots(figsize=(30, 20))
 
     groups = df.groupby(['Data', 'Parity', 'File Size'])
     for key, group in groups:
@@ -167,7 +169,7 @@ if __name__ == "__main__":
         exit(1)
 
     cases = generate_data_parity(data, parity)
-    cases= cases * 2
+    cases= cases * 5
     cases.sort()
     total_result=   []
     for case in cases:
