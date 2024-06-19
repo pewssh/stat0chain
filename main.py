@@ -136,7 +136,7 @@ def mean_data(res):
 
 
 def draw_plot(data, parity):
-    df = pd.read_csv(f"images/benchmark{data}-{parity}.csv")
+    df = pd.read_csv(f"benchmark{data}-{parity}.csv")
     print(df.head())
 
     fig, ax = plt.subplots(figsize=(30, 20))
@@ -155,7 +155,7 @@ def draw_plot(data, parity):
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
-    plt.savefig(f'plot{data}-{parity}.png', dpi=100)  
+    plt.savefig(f'images/plot{data}-{parity}.png', dpi=100)  
 
 
 
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     final_result = mean_data(total_result)
     sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
 
-    with open(f"images/benchmark{data}-{parity}.csv", "w") as file:
+    with open(f"benchmark{data}-{parity}.csv", "w") as file:
         writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
         writer.writeheader()
         writer.writerows(sorted_result)
