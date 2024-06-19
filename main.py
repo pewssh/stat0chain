@@ -103,7 +103,7 @@ def create_allocation_upload_file(data, parity):
             row = {
                 "Data": data,
                 "Parity": parity,
-                "File Size": str(size_in_bytes/ (1024 ** 2)) + "MB",
+                "File Size": float(size_in_bytes/ (1024 ** 2)),
                 "Time": str(float(end - start)) + "seconds"
             }
             appended_data.append(row)
@@ -187,6 +187,7 @@ if __name__ == "__main__":
     # calculate for mean
 
     final_result = mean_data(total_result)
+
     sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
 
     with open(f"benchmark{data}-{parity}.csv", "w") as file:
