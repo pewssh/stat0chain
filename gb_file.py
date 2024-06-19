@@ -1,6 +1,6 @@
 import random
 import string
-import threading
+import sys
 
 # Function to generate random content for a given chunk size
 def generate_random_content(size):
@@ -16,10 +16,10 @@ def write_to_file(filename, start_byte, end_byte):
             start_byte += chunk_size
 
 # Function to generate a 1 GB file using multithreading
-def generate_1GB_file(filename):
-    size_in_b = 1 * 1024 * 1024 * 500  # 1 GB in bytes
+def generate_1GB_file(size_mb):
+    size_in_b = 1 * 1024 * 1024 * size_mb  
     chunk_size = size_in_b  # Single chunk for simplicity
-
+    filename = "dummy_file_{}MB.txt".format(size_mb)
     with open(filename, 'wb') as file:
         file.write(b'\0' * size_in_b)  # Write zeros to allocate space
 
@@ -27,4 +27,4 @@ def generate_1GB_file(filename):
     write_to_file(filename, 0, size_in_b)
 
 # Generate the 1 GB file using multithreading
-generate_1GB_file("dummy_file_1GB.txt")
+generate_1GB_file(int(sys.argv[1]))
