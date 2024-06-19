@@ -178,3 +178,126 @@
 0box-sdk        [INFO]   2024/06/19 17:36:28.604043 multi_operation_worker.go:126: https://test3-bv4.zus.network/blobber01/ connection obj created.
 0box-sdk        [INFO]   2024/06/19 17:36:28.710248 multi_operation_worker.go:126: https://test3-bv2.zus.network/blobber01/ connection obj created.
 0box-sdk        [INFO]   2024/06/19 17:36:28.711575 multi_operation_worker.go:162: MultiOperation Process start
+0box-sdk        [INFO]   2024/06/19 17:38:23.855220 upload_worker.go:63: UploadOperation Success{name 15 0 200mbfile.pdf <nil>}
+0box-sdk        [INFO]   2024/06/19 17:38:23.857510 multi_operation_worker.go:225: Trying to lock write marker.....
+0box-sdk        [INFO]   2024/06/19 17:38:24.562174 writemarker_mutex.go:322: https://test3-bv1.zus.network/blobber01/HAoMysveYyyKiMks2qMLnX locked
+0box-sdk        [INFO]   2024/06/19 17:38:25.270424 writemarker_mutex.go:322: https://test3-bv2.zus.network/blobber01/HAoMysveYyyKiMks2qMLnX locked
+0box-sdk        [INFO]   2024/06/19 17:38:25.319201 writemarker_mutex.go:322: https://test3-bv4.zus.network/blobber01/HAoMysveYyyKiMks2qMLnX locked
+0box-sdk        [INFO]   2024/06/19 17:38:25.319432 multi_operation_worker.go:235: [writemarkerLocked]1462
+0box-sdk        [INFO]   2024/06/19 17:38:25.509566 multi_operation_worker.go:292: [checkAllocStatus]190
+0box-sdk        [INFO]   2024/06/19 17:38:25.509744 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.509779 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.509824 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.509852 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:38:25.509828 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:38:25.509983 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:38:25.690675 commitworker.go:258: Committing to blobber.https://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.690712 commitworker.go:258: Committing to blobber.https://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.702077 commitworker.go:258: Committing to blobber.https://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.873494 commitworker.go:297: https://test3-bv1.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:38:25.873578 commitworker.go:213: [commitBlobber]363
+0box-sdk        [INFO]   2024/06/19 17:38:25.876931 commitworker.go:297: https://test3-bv2.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:38:25.876976 commitworker.go:213: [commitBlobber]367
+0box-sdk        [INFO]   2024/06/19 17:38:25.899224 commitworker.go:297: https://test3-bv4.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:38:25.899314 commitworker.go:213: [commitBlobber]389
+0box-sdk        [INFO]   2024/06/19 17:38:25.899349 multi_operation_worker.go:320: [commitRequests]389
+0box-sdk        [INFO]   2024/06/19 17:38:25.899382 multi_operation_worker.go:326: Commit successhttps://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.899405 multi_operation_worker.go:326: Commit successhttps://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:25.899422 multi_operation_worker.go:326: Commit successhttps://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:38:26.075746 writemarker_mutex.go:128: https://test3-bv2.zus.network/blobber01/HAoMysveYyyKiMks2qMLnX unlocked
+0box-sdk        [INFO]   2024/06/19 17:38:26.087480 writemarker_mutex.go:128: https://test3-bv4.zus.network/blobber01/HAoMysveYyyKiMks2qMLnX unlocked
+0box-sdk        [INFO]   2024/06/19 17:38:26.258135 writemarker_mutex.go:128: https://test3-bv1.zus.network/blobber01/HAoMysveYyyKiMks2qMLnX unlocked
+0chain-core-sdk [INFO]   2024/06/19 17:38:26.360725 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:38:26.360845 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 17:38:27.134392 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 17:38:27.915814 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3b.zus.network/sharder01","https://test3a.zus.network/sharder01"]}
+0box-sdk        [INFO]   2024/06/19 17:38:29.509025 multi_operation_worker.go:126: https://test3-bv1.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:38:29.570428 multi_operation_worker.go:126: https://test3-bv4.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:38:29.581398 multi_operation_worker.go:126: https://test3-bv2.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:38:29.585611 multi_operation_worker.go:162: MultiOperation Process start
+0box-sdk        [INFO]   2024/06/19 17:44:21.040704 upload_worker.go:63: UploadOperation Success{name 15 0 file512000.txt <nil>}
+0box-sdk        [INFO]   2024/06/19 17:44:21.043613 multi_operation_worker.go:225: Trying to lock write marker.....
+0box-sdk        [INFO]   2024/06/19 17:44:21.916682 writemarker_mutex.go:322: https://test3-bv1.zus.network/blobber01/XKwXW2Hz96iBeDwJDhSnsB locked
+0box-sdk        [INFO]   2024/06/19 17:44:22.746639 writemarker_mutex.go:322: https://test3-bv2.zus.network/blobber01/XKwXW2Hz96iBeDwJDhSnsB locked
+0box-sdk        [INFO]   2024/06/19 17:44:22.813121 writemarker_mutex.go:322: https://test3-bv4.zus.network/blobber01/XKwXW2Hz96iBeDwJDhSnsB locked
+0box-sdk        [INFO]   2024/06/19 17:44:22.813355 multi_operation_worker.go:235: [writemarkerLocked]1770
+0box-sdk        [INFO]   2024/06/19 17:44:23.013078 multi_operation_worker.go:292: [checkAllocStatus]199
+0box-sdk        [INFO]   2024/06/19 17:44:23.013219 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.013259 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.013284 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.013348 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:44:23.013367 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:44:23.013326 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:44:23.211304 commitworker.go:258: Committing to blobber.https://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.211568 commitworker.go:258: Committing to blobber.https://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.212254 commitworker.go:258: Committing to blobber.https://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.404034 commitworker.go:297: https://test3-bv1.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:44:23.404254 commitworker.go:213: [commitBlobber]390
+0box-sdk        [INFO]   2024/06/19 17:44:23.412073 commitworker.go:297: https://test3-bv4.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:44:23.412153 commitworker.go:213: [commitBlobber]398
+0box-sdk        [INFO]   2024/06/19 17:44:23.417315 commitworker.go:297: https://test3-bv2.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:44:23.417400 commitworker.go:213: [commitBlobber]404
+0box-sdk        [INFO]   2024/06/19 17:44:23.417439 multi_operation_worker.go:320: [commitRequests]404
+0box-sdk        [INFO]   2024/06/19 17:44:23.417473 multi_operation_worker.go:326: Commit successhttps://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.417499 multi_operation_worker.go:326: Commit successhttps://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.417520 multi_operation_worker.go:326: Commit successhttps://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:44:23.612213 writemarker_mutex.go:128: https://test3-bv4.zus.network/blobber01/XKwXW2Hz96iBeDwJDhSnsB unlocked
+0box-sdk        [INFO]   2024/06/19 17:44:23.612213 writemarker_mutex.go:128: https://test3-bv2.zus.network/blobber01/XKwXW2Hz96iBeDwJDhSnsB unlocked
+0box-sdk        [INFO]   2024/06/19 17:44:23.798930 writemarker_mutex.go:128: https://test3-bv1.zus.network/blobber01/XKwXW2Hz96iBeDwJDhSnsB unlocked
+0chain-core-sdk [INFO]   2024/06/19 17:44:23.966661 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:44:23.966759 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 17:44:24.900572 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 17:44:25.712980 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3b.zus.network/sharder01","https://test3a.zus.network/sharder01"]}
+0box-sdk        [INFO]   2024/06/19 17:44:27.765876 node.go:194: Query from https://test3a.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802
+0box-sdk        [INFO]   2024/06/19 17:44:27.765860 node.go:194: Query from https://test3b.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802
+0box-sdk        [DEBUG]  2024/06/19 17:44:27.952059 node.go:147: https://test3b.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802200 OK
+0box-sdk        [DEBUG]  2024/06/19 17:44:27.952313 node.go:152: {"txn":"85d3be645340f85cef745f011f399ce60b427ad247a5c9789220cf9f342333c6","round":5371,"balance":19339499837000000,"nonce":19}
+0box-sdk        [DEBUG]  2024/06/19 17:44:27.965490 node.go:147: https://test3a.zus.network/sharder01/v1/client/get/balance?client_id=1746b06bb09f55ee01b33b5e2e055d6cc7a900cb57c0a3a5eaabb8a0e7745802200 OK
+0box-sdk        [DEBUG]  2024/06/19 17:44:27.965595 node.go:152: {"txn":"85d3be645340f85cef745f011f399ce60b427ad247a5c9789220cf9f342333c6","round":5371,"balance":19339499837000000,"nonce":19}
+0box-sdk        [INFO]   2024/06/19 17:44:27.967309 sdk.go:1574: executing transaction 'new_allocation_request' with hash 624ad3fdc37ba60eaf99ed2ea2b30e6068f2509b4929fd237834d448c754e481 
+0box-sdk        [INFO]   2024/06/19 17:44:27.967364 sdk.go:1575: estimated txn fee: 30000000
+0chain-core-sdk [INFO]   2024/06/19 17:44:34.038177 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:44:34.038337 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 17:44:34.817535 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 17:44:35.543948 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3a.zus.network/sharder01","https://test3b.zus.network/sharder01"]}
+0box-sdk        [INFO]   2024/06/19 17:44:37.017994 multi_operation_worker.go:126: https://test3-bv2.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:44:37.079771 multi_operation_worker.go:126: https://test3-bv4.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:44:37.116537 multi_operation_worker.go:126: https://test3-bv1.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:44:37.119357 multi_operation_worker.go:162: MultiOperation Process start
+0box-sdk        [INFO]   2024/06/19 17:46:47.919903 upload_worker.go:63: UploadOperation Success{name 15 0 200mbfile.pdf <nil>}
+0box-sdk        [INFO]   2024/06/19 17:46:47.921522 multi_operation_worker.go:225: Trying to lock write marker.....
+0box-sdk        [INFO]   2024/06/19 17:46:48.652323 writemarker_mutex.go:322: https://test3-bv1.zus.network/blobber01/453Qq3uuUGzFVWtxVo7dPo locked
+0box-sdk        [INFO]   2024/06/19 17:46:49.389456 writemarker_mutex.go:322: https://test3-bv4.zus.network/blobber01/453Qq3uuUGzFVWtxVo7dPo locked
+0box-sdk        [INFO]   2024/06/19 17:46:49.562760 writemarker_mutex.go:322: https://test3-bv2.zus.network/blobber01/453Qq3uuUGzFVWtxVo7dPo locked
+0box-sdk        [INFO]   2024/06/19 17:46:49.562923 multi_operation_worker.go:235: [writemarkerLocked]1641
+0box-sdk        [INFO]   2024/06/19 17:46:49.790774 multi_operation_worker.go:292: [checkAllocStatus]227
+0box-sdk        [INFO]   2024/06/19 17:46:49.790970 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:49.791058 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:49.791134 multi_operation_worker.go:315: Commit request sending to blobber https://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:49.791384 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:46:49.791167 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:46:49.791192 commitworker.go:102: received a commit request
+0box-sdk        [INFO]   2024/06/19 17:46:49.975906 commitworker.go:258: Committing to blobber.https://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:49.977146 commitworker.go:258: Committing to blobber.https://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:50.020785 commitworker.go:258: Committing to blobber.https://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:50.168291 commitworker.go:297: https://test3-bv1.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:46:50.168798 commitworker.go:213: [commitBlobber]377
+0box-sdk        [INFO]   2024/06/19 17:46:50.178577 commitworker.go:297: https://test3-bv4.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:46:50.178718 commitworker.go:213: [commitBlobber]387
+0box-sdk        [INFO]   2024/06/19 17:46:50.238784 commitworker.go:297: https://test3-bv2.zus.network/blobber01/ committed
+0box-sdk        [INFO]   2024/06/19 17:46:50.238936 commitworker.go:213: [commitBlobber]447
+0box-sdk        [INFO]   2024/06/19 17:46:50.238984 multi_operation_worker.go:320: [commitRequests]448
+0box-sdk        [INFO]   2024/06/19 17:46:50.239009 multi_operation_worker.go:326: Commit successhttps://test3-bv1.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:50.239031 multi_operation_worker.go:326: Commit successhttps://test3-bv4.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:50.239044 multi_operation_worker.go:326: Commit successhttps://test3-bv2.zus.network/blobber01/
+0box-sdk        [INFO]   2024/06/19 17:46:50.427767 writemarker_mutex.go:128: https://test3-bv4.zus.network/blobber01/453Qq3uuUGzFVWtxVo7dPo unlocked
+0box-sdk        [INFO]   2024/06/19 17:46:50.447463 writemarker_mutex.go:128: https://test3-bv2.zus.network/blobber01/453Qq3uuUGzFVWtxVo7dPo unlocked
+0box-sdk        [INFO]   2024/06/19 17:46:50.629794 writemarker_mutex.go:128: https://test3-bv1.zus.network/blobber01/453Qq3uuUGzFVWtxVo7dPo unlocked
+0chain-core-sdk [INFO]   2024/06/19 17:46:50.733848 wallet_base.go:331: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (SetLogFile)
+0box-sdk        [INFO]   2024/06/19 17:46:50.733957 sdk.go:99: ******* Storage SDK Version: v1.12.1-3-gbc68f654 *******
+0chain-core-sdk [INFO]   2024/06/19 17:46:51.486044 transaction_base.go:143: ******* Wallet SDK Version:v1.12.1-3-gbc68f654 ******* (InitZCNSDK)
+0box-sdk        [DEBUG]  2024/06/19 17:46:52.257022 networkworker.go:119: Get network result:{"miners":["https://test3b.zus.network/miner02","https://test3b.zus.network/miner01","https://test3a.zus.network/miner01","https://test3a.zus.network/miner02"],"sharders":["https://test3b.zus.network/sharder01","https://test3a.zus.network/sharder01"]}
+0box-sdk        [INFO]   2024/06/19 17:46:53.920117 multi_operation_worker.go:126: https://test3-bv4.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:46:53.936943 multi_operation_worker.go:126: https://test3-bv2.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:46:53.966756 multi_operation_worker.go:126: https://test3-bv1.zus.network/blobber01/ connection obj created.
+0box-sdk        [INFO]   2024/06/19 17:46:53.970000 multi_operation_worker.go:162: MultiOperation Process start
