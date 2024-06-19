@@ -6,3 +6,4 @@ venv
 file512*
 dummy_*
 cmdlog.log
+benchmarks*
