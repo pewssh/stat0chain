@@ -152,7 +152,7 @@ def draw_plot(data, parity):
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
-    plt.savefig('plot{data}-{parity}.png'.format(data, parity), dpi=600)  
+    plt.savefig(f'plot{data}-{parity}.png', dpi=600)  
 
 
 
