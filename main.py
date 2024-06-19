@@ -56,12 +56,12 @@ def create_allocation(data, parity):
     return allocationId
 
 
-def generate_data_parity(data, parity):
+def generate_data_parity(data, parity,min=1):
     cases = []
     # i = max(data, parity)
     # j = min(data, parity)
-    for k in range(1, data+1):
-        for l in range(1, parity+1):
+    for k in range(min, data+1):
+        for l in range(min, parity+1):
             cases.append((k, l))
 
     return cases
@@ -163,12 +163,21 @@ if __name__ == "__main__":
     try:
         data = int(sys.argv[1])
         parity = int(sys.argv[2])
+        if data < 1 or parity < 1:
+            raise Exception("Data and Parity should be greater than 1")
+        # if data and parity is greater than 10  range should start from 10 onwards similarly if > 20 then 20 onwards
+        min = 1
+        if data > 10:
+            min = 10
+        if data > 20:
+            min = 20
+
     except Exception as e:
         print("Please provide data and parity as command line arguments")
         print("Example: python3 main.py 2 2")
         exit(1)
 
-    cases = generate_data_parity(data, parity)
+    cases = generate_data_parity(data, parity, min=min)
     cases= cases * 5
     cases.sort()
     total_result=   []
