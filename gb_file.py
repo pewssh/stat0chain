@@ -17,10 +17,9 @@ def write_to_file(filename, start_byte, end_byte):
 
 # Function to generate a 1 GB file using multithreading
 def generate_1GB_file(filename):
-    size_in_b = 1 * 1024 * 1024 * 1024  # 1 GB in bytes
+    size_in_b = 1 * 1024 * 1024 * 500  # 1 GB in bytes
     chunk_size = size_in_b  # Single chunk for simplicity
 
-    # Open the file in write mode to create it
     with open(filename, 'wb') as file:
         file.write(b'\0' * size_in_b)  # Write zeros to allocate space
 
