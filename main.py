@@ -45,12 +45,14 @@ def generate_random_file(index):
     
     return files[index], os.path.getsize(files[index])
 
-def create_allocation(data, parity):
+def create_allocation(data, parity, lock):
     if data + parity > total_data_parity_max:
         return "Data + Parity should be less than 46"
-    command = "./zbox newallocation   --data {} --parity {} --lock 20 --size 4294967296".format(data, parity)
+    command = "./zbox newallocation   --data {} --parity {} --lock {} --size 4294967296".format(data, parity)
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     print("Output:", result.stdout)
+    if "Error" in result.stdout:
+        raise Exception(result.stdout)
     allocationId = result.stdout.split(" ")[-1].strip()
     logging.info( "Allocation :{} created with data: {} and parity: {}".format(allocationId, data, parity))
     return allocationId
@@ -83,9 +85,10 @@ KB = 1024
 MB = 1024 * KB
 GB = 1024 * MB
 
-def create_allocation_upload_file(data, parity):
+def create_allocation_upload_file(data, parity, lock=10):
     appended_data =[]
     allocationId = create_allocation(data, parity)
+    
 
     files = os.listdir()
     files = [file for file in files if file.startswith("dummy")]
@@ -163,9 +166,11 @@ def draw_plot(data, parity):
 
 if __name__ == "__main__":
     # get value from terminal
+    lock = 10
     try:
         data = int(sys.argv[1])
         parity = int(sys.argv[2])
+        lock= int(sys.argv[3])
         if data < 1 or parity < 1:
             raise Exception("Data and Parity should be greater than 1")
         # if data and parity is greater than 10  range should start from 10 onwards similarly if > 20 then 20 onwards
@@ -181,19 +186,26 @@ if __name__ == "__main__":
     cases= cases * 5
     cases.sort()
     total_result=   []
+    quit=False
     for case in cases:
-        result = create_allocation_upload_file(data=case[0], parity=case[1])
-        total_result.extend(result)
+        try:
+            result = create_allocation_upload_file(data=case[0], parity=case[1], lock=lock)
+            total_result.extend(result)
+        except Exception as e:
+            logging.error(f"Error: {str(e)}")
+            # quit other execution
+            quit=True
+            break
 
     # calculate for mean
+    if quit is False:
+        final_result = mean_data(total_result)
 
-    final_result = mean_data(total_result)
+        sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
+        with open(f"benchmark{data}-{parity}.csv", "w") as file:
+            writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
+            writer.writeheader()
+            writer.writerows(sorted_result)
 
-    sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
-    with open(f"benchmark{data}-{parity}.csv", "w") as file:
-        writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
-        writer.writeheader()
-        writer.writerows(sorted_result)
-
-    # call draw plot
-    draw_plot(data,parity=parity)
+        # call draw plot
+        draw_plot(data,parity=parity)
