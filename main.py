@@ -48,7 +48,7 @@ def generate_random_file(index):
 def create_allocation(data, parity):
     if data + parity > total_data_parity_max:
         return "Data + Parity should be less than 46"
-    command = "./zbox newallocation   --data {} --parity {} --lock 10 --size 4294967296".format(data, parity)
+    command = "./zbox newallocation   --data {} --parity {} --lock 20 --size 4294967296".format(data, parity)
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     print("Output:", result.stdout)
     allocationId = result.stdout.split(" ")[-1].strip()
