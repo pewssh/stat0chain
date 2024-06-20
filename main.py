@@ -87,7 +87,7 @@ GB = 1024 * MB
 
 def create_allocation_upload_file(data, parity, lock=10):
     appended_data =[]
-    allocationId = create_allocation(data, parity)
+    allocationId = create_allocation(data, parity, lock=lock)
     
 
     files = os.listdir()
