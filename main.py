@@ -178,8 +178,8 @@ if __name__ == "__main__":
         min = max(min,1)
 
     except Exception as e:
-        print("Please provide data and parity as command line arguments")
-        print("Example: python3 main.py 2 2")
+        print("Please provide data , parity, lock as command line arguments")
+        print("Example: python3 main.py 2 2 10")
         exit(1)
 
     cases = generate_data_parity(data, parity, min=min)
