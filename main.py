@@ -171,6 +171,8 @@ if __name__ == "__main__":
         data = int(sys.argv[1])
         parity = int(sys.argv[2])
         lock= int(sys.argv[3])
+        repeat = int(sys.argv[4])
+
         if data < 1 or parity < 1:
             raise Exception("Data and Parity should be greater than 1")
         # if data and parity is greater than 10  range should start from 10 onwards similarly if > 20 then 20 onwards
@@ -178,12 +180,12 @@ if __name__ == "__main__":
         min = max(min,1)
 
     except Exception as e:
-        print("Please provide data , parity, lock as command line arguments")
-        print("Example: python3 main.py 2 2 10")
+        print("Please provide data , parity, lock, repeat as command line arguments")
+        print("Example: python3 main.py 2 2 10 1")
         exit(1)
 
     cases = generate_data_parity(data, parity, min=min)
-    cases= cases * 5
+    cases= cases * repeat
     cases.sort()
     total_result=   []
     quit=False
