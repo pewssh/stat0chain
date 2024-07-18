@@ -176,7 +176,7 @@ if __name__ == "__main__":
         if data < 1 or parity < 1:
             raise Exception("Data and Parity should be greater than 1")
         # if data and parity is greater than 10  range should start from 10 onwards similarly if > 20 then 20 onwards
-        min = data-5
+        min = data-2
         min = max(min,1)
 
     except Exception as e:
