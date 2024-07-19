@@ -58,18 +58,18 @@ def create_allocation(data, parity, lock):
     return allocationId
 
 
-def generate_data_parity(data, parity,min=1):
+def generate_data_parity(data, parity,max_blobbers=40):
+    base_data=data
+    base_parity = parity
     cases = []
-    # i = max(data, parity)
-    # j = min(data, parity)
-    for k in range(min, data+1):
-        for l in range(min, parity+1):
-            if k + l <= total_data_parity_max:
-                cases.append((k, l))
 
+    for i in range(1, max_blobbers):
+        if data+parity <= max_blobbers:
+            cases.append((data, parity))
+            data = base_data * (i+1)
+            parity = base_parity * (i+1)
     return cases
 
-# ./zbox upload --localpath /absolute-path-to-local-file/hello.txt --remotepath /myfiles/hello.txt --allocation d0939e912851959637257573b08c748474f0dd0ebbc8e191e4f6ad69e4fdc7ac
 
 def upload_file(allocation, file, remotepath):
     command = "./zbox upload --localpath {} --remotepath /{} --allocation {}".format(file, remotepath, allocation)
@@ -177,14 +177,13 @@ if __name__ == "__main__":
             raise Exception("Data and Parity should be greater than 1")
         # if data and parity is greater than 10  range should start from 10 onwards similarly if > 20 then 20 onwards
         min = data-2
-        min = max(min,1)
 
     except Exception as e:
-        print("Please provide data , parity, lock, repeat as command line arguments")
+        print("Please provide data , parity, used for data parity exapnsion lock, repeat as command line arguments")
         print("Example: python3 main.py 2 2 10 1")
         exit(1)
 
-    cases = generate_data_parity(data, parity, min=min)
+    cases = generate_data_parity(data, parity)
     cases= cases * repeat
     cases.sort()
     total_result=   []
