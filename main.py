@@ -58,7 +58,7 @@ def create_allocation(data, parity, lock):
     return allocationId
 
 
-def generate_data_parity(data, parity,max_blobbers=40):
+def generate_data_parity(data, parity,max_blobbers=total_data_parity_max):
     base_data=data
     base_parity = parity
     cases = []
@@ -172,6 +172,10 @@ if __name__ == "__main__":
         parity = int(sys.argv[2])
         lock= int(sys.argv[3])
         repeat = int(sys.argv[4])
+        try:
+            max = sys.argv[5]
+        except Exception as e:
+            max = None
 
         if data < 1 or parity < 1:
             raise Exception("Data and Parity should be greater than 1")
@@ -182,8 +186,12 @@ if __name__ == "__main__":
         print("Please provide data , parity, used for data parity exapnsion lock, repeat as command line arguments")
         print("Example: python3 main.py 2 2 10 1")
         exit(1)
+    
+    if max:
+        cases = generate_data_parity(data, parity, max_blobbers=int(max))
+    else:
+        cases=generate_data_parity(data, parity )
 
-    cases = generate_data_parity(data, parity)
     cases= cases * repeat
     cases.sort()
     total_result=   []
