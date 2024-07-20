@@ -35,6 +35,7 @@ handler.setFormatter(colorlog.ColoredFormatter(
 logger.addHandler(handler)
 
 total_data_parity_max = 40
+total_min_data_parity_max=35
 
 def generate_random_file(index):
     files = os.listdir()
@@ -58,13 +59,12 @@ def create_allocation(data, parity, lock):
     return allocationId
 
 
-def generate_data_parity(data, parity,max_blobbers=total_data_parity_max):
+def generate_data_parity(data, parity,max_blobbers=total_data_parity_max, min_blobber=total_min_data_parity_max):
     base_data=data
     base_parity = parity
     cases = []
-    min_value = 1 if max_blobbers-5 <1 else max-max_blobbers
-    
-    for i in range(min_value, max_blobbers):
+
+    for i in range(min_blobber, max_blobbers):
         if data+parity <= max_blobbers:
             cases.append((data, parity))
             data = base_data * (i+1)
@@ -141,8 +141,8 @@ def mean_data(res):
 
 
 
-def draw_plot(data, parity):
-    df = pd.read_csv(f"benchmark{data}-{parity}.csv")
+def draw_plot(data, parity, blobber=40):
+    df = pd.read_csv(f"benchmark{data}-{parity}-{blobber}.csv")
     print(df.head())
 
     fig, ax = plt.subplots(figsize=(30, 20))
@@ -161,7 +161,7 @@ def draw_plot(data, parity):
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
-    plt.savefig(f'images/plot{data}-{parity}.png', dpi=100)  
+    plt.savefig(f'images/plot{data}-{parity}-{blobber}.png', dpi=100)  
 
 
 
@@ -187,11 +187,14 @@ if __name__ == "__main__":
         print("Please provide data , parity, used for data parity exapnsion lock, repeat as command line arguments")
         print("Example: python3 main.py 2 2 10 1")
         exit(1)
-    
+
     if max:
-        cases = generate_data_parity(data, parity, max_blobbers=int(max))
+        max_blobbers = int(max)
+        min_blobber = 1 if max_blobbers-5 <1 else max-max_blobbers
+        cases = generate_data_parity(data, parity, max_blobbers=max_blobbers, min_blobber=min_blobber)
     else:
         cases=generate_data_parity(data, parity )
+
 
     cases= cases * repeat
     cases.sort()
@@ -212,10 +215,10 @@ if __name__ == "__main__":
         final_result = mean_data(total_result)
 
         sorted_result = sorted(final_result, key=lambda x: (x['File Size'], x['Data'], x['Parity']))
-        with open(f"benchmark{data}-{parity}.csv", "w") as file:
+        with open(f"benchmark{data}-{parity}-{blobber}.csv", "w") as file:
             writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
             writer.writeheader()
             writer.writerows(sorted_result)
 
         # call draw plot
-        draw_plot(data,parity=parity)
+        draw_plot(data,parity=parity, blobber=blobber)
