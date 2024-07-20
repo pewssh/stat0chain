@@ -192,7 +192,7 @@ if __name__ == "__main__":
 
     if max:
         max_blobbers = int(max)
-        min_blobber = 1 if max_blobbers-5 <1 else max_blobbers-5
+        min_blobber = 1 if max_blobbers-10 <1 else max_blobbers-10
         cases = generate_data_parity(data, parity, max_blobbers=max_blobbers, min_blobber=min_blobber)
     else:
         min_blobber=total_min_data_parity_max
