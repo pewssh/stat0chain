@@ -161,7 +161,7 @@ def draw_plot(data, parity, blobber=40):
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
-    if 'images' in os.listdir():
+    if 'images' not in os.listdir():
         os.mkdir("images")
     plt.savefig(f'images/plot{data}-{parity}-{min_blobber}.png', dpi=100)  
 
@@ -218,7 +218,7 @@ if __name__ == "__main__":
         final_result = mean_data(total_result)
 
         sorted_result = sorted(final_result, key=lambda x: (x['File Size'], x['Data'], x['Parity']))
-        if 'benchmarks' in os.listdir():
+        if 'benchmarks' not in os.listdir():
             os.mkdir("benchmarks")
         with open(f"benchmarks/benchmark{data}-{parity}-{min_blobber}.csv", "w") as file:
             writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
