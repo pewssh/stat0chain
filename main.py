@@ -142,9 +142,6 @@ def mean_data(res):
 
 
 def draw_plot(data, parity, blobber=40):
-    if 'benchmarks' in os.listdir():
-        os.mkdir("benchmarks")
-
     df = pd.read_csv(f"benchmarks/benchmark{data}-{parity}-{min_blobber}.csv")
     print(df.head())
 
@@ -221,7 +218,9 @@ if __name__ == "__main__":
         final_result = mean_data(total_result)
 
         sorted_result = sorted(final_result, key=lambda x: (x['File Size'], x['Data'], x['Parity']))
-        with open(f"benchmark{data}-{parity}-{min_blobber}.csv", "w") as file:
+        if 'benchmarks' in os.listdir():
+            os.mkdir("benchmarks")
+        with open(f"benchmarks/benchmark{data}-{parity}-{min_blobber}.csv", "w") as file:
             writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
             writer.writeheader()
             writer.writerows(sorted_result)
