@@ -142,7 +142,10 @@ def mean_data(res):
 
 
 def draw_plot(data, parity, blobber=40):
-    df = pd.read_csv(f"benchmark{data}-{parity}-{min_blobber}.csv")
+    if 'benchmarks' in os.listdir():
+        os.mkdir("benchmarks")
+
+    df = pd.read_csv(f"benchmarks/benchmark{data}-{parity}-{min_blobber}.csv")
     print(df.head())
 
     fig, ax = plt.subplots(figsize=(30, 20))
@@ -161,6 +164,8 @@ def draw_plot(data, parity, blobber=40):
 
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5) )
     # plt.tight_layout()
+    if 'images' in os.listdir():
+        os.mkdir("images")
     plt.savefig(f'images/plot{data}-{parity}-{min_blobber}.png', dpi=100)  
 
 
