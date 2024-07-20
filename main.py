@@ -210,7 +210,7 @@ if __name__ == "__main__":
     if quit is False:
         final_result = mean_data(total_result)
 
-        sorted_result = sorted(final_result, key=lambda x: (x['Data'], x['Parity'], x['File Size']))
+        sorted_result = sorted(final_result, key=lambda x: (x['File Size'], x['Data'], x['Parity']))
         with open(f"benchmark{data}-{parity}.csv", "w") as file:
             writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
             writer.writeheader()
