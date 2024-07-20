@@ -63,7 +63,7 @@ def generate_data_parity(data, parity,max_blobbers=total_data_parity_max):
     base_parity = parity
     cases = []
 
-    for i in range(1, max_blobbers):
+    for i in range(max_blobbers-5, max_blobbers):
         if data+parity <= max_blobbers:
             cases.append((data, parity))
             data = base_data * (i+1)
