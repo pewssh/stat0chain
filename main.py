@@ -50,6 +50,8 @@ def create_allocation(data, parity, lock):
     if data + parity > total_data_parity_max:
         return "Data + Parity should be less than 46"
     command = "./zbox newallocation   --data {} --parity {} --lock {} --size 4294967296".format(data, parity, lock)
+    logger.info(f"Zbox command to create allocation:  {command}")
+
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     print("Output:", result.stdout)
     if "Error" in result.stdout:
@@ -198,7 +200,7 @@ if __name__ == "__main__":
         min_blobber=total_min_data_parity_max
         cases=generate_data_parity(data, parity )
 
-    breakpoint()
+    
     cases= cases * repeat
     cases.sort()
     total_result=   []
