@@ -35,7 +35,7 @@ handler.setFormatter(colorlog.ColoredFormatter(
 logger.addHandler(handler)
 
 total_data_parity_max = 40
-total_min_data_parity_max=35
+total_min_data_parity_max=20
 
 def generate_random_file(index):
     files = os.listdir()
@@ -198,7 +198,7 @@ if __name__ == "__main__":
         min_blobber=total_min_data_parity_max
         cases=generate_data_parity(data, parity )
 
-
+    breakpoint()
     cases= cases * repeat
     cases.sort()
     total_result=   []
