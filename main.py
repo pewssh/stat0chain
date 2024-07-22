@@ -229,4 +229,4 @@ if __name__ == "__main__":
             writer.writerows(sorted_result)
 
         # call draw plot
-        draw_plot(data,parity=parity, blobber=min_blobber)
+        draw_plot(data,parity=parity, blobber=max_blobbers)
