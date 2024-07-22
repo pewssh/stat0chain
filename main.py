@@ -144,7 +144,7 @@ def mean_data(res):
 
 
 def draw_plot(data, parity, blobber=40):
-    df = pd.read_csv(f"benchmarks/benchmark{data}-{parity}-{min_blobber}.csv")
+    df = pd.read_csv(f"benchmarks/benchmark{data}-{parity}-{blobber}.csv")
     print(df.head())
 
     fig, ax = plt.subplots(figsize=(30, 20))
@@ -165,7 +165,7 @@ def draw_plot(data, parity, blobber=40):
     # plt.tight_layout()
     if 'images' not in os.listdir():
         os.mkdir("images")
-    plt.savefig(f'images/plot{data}-{parity}-{min_blobber}.png', dpi=100)  
+    plt.savefig(f'images/plot{data}-{parity}-{blobber}.png', dpi=100)  
 
 
 
@@ -198,6 +198,7 @@ if __name__ == "__main__":
         cases = generate_data_parity(data, parity, max_blobbers=max_blobbers, min_blobber=min_blobber)
     else:
         min_blobber=total_min_data_parity_max
+        max_blobbers=total_data_parity_max
         cases=generate_data_parity(data, parity )
 
     
@@ -222,7 +223,7 @@ if __name__ == "__main__":
         sorted_result = sorted(final_result, key=lambda x: (x['File Size'], x['Data'], x['Parity']))
         if 'benchmarks' not in os.listdir():
             os.mkdir("benchmarks")
-        with open(f"benchmarks/benchmark{data}-{parity}-{min_blobber}.csv", "w") as file:
+        with open(f"benchmarks/benchmark{data}-{parity}-{max_blobbers}.csv", "w") as file:
             writer = csv.DictWriter(file, fieldnames=["Data", "Parity", "File Size", "Mean Time Taken"])
             writer.writeheader()
             writer.writerows(sorted_result)
