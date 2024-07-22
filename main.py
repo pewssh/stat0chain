@@ -66,11 +66,11 @@ def generate_data_parity(data, parity,max_blobbers=total_data_parity_max, min_bl
     base_parity = parity
     cases = []
 
-    for i in range(min_blobber, max_blobbers):
-        if data+parity <= max_blobbers:
+    for i in range(1, max_blobbers):
+        if data+parity >=min_blobber and data+parity <= max_blobbers:
             cases.append((data, parity))
-            data = base_data * (i+1)
-            parity = base_parity * (i+1)
+        data = base_data * (i)
+        parity = base_parity * (i)
     return cases
 
 
@@ -201,7 +201,7 @@ if __name__ == "__main__":
         max_blobbers=total_data_parity_max
         cases=generate_data_parity(data, parity )
 
-    
+    breakpoint()
     cases= cases * repeat
     cases.sort()
     total_result=   []
