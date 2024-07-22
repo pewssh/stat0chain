@@ -201,7 +201,6 @@ if __name__ == "__main__":
         max_blobbers=total_data_parity_max
         cases=generate_data_parity(data, parity )
 
-    breakpoint()
     cases= cases * repeat
     cases.sort()
     total_result=   []
