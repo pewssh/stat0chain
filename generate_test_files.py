@@ -8,17 +8,17 @@ def generate_random_file(filename, size_in_b):
         file.write(content)
 
 
-# mB_500 = 524288000
-# mB_800=800000000
-# mb_200= 209715200
-# mb_100= 104857600
-# mB_1=1000000
+mB_500 = 524288000
+mB_800=800000000
+mb_200= 209715200
+mb_100= 104857600
+mB_1=1000000
 # kB_500= 512000
-gb_1 = 1073741824
-gb_2 = 2147483648
-gb_5 = 5368709120
-gb_10= 10737418240
+# gb_1 = 1073741824
+# gb_2 = 2147483648
+# gb_5 = 5368709120
+# gb_10= 10737418240
 
 
-for file in [gb_1, gb_2, gb_5, gb_10]:
-    generate_random_file("file{}.txt".format(file), file)
+for file in [mb_100, mb_200, mB_500, mB_800, mB_800]:
+    generate_random_file("dummy{}.txt".format(file), file)
