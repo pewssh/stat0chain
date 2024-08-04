@@ -49,7 +49,7 @@ def generate_random_file(index):
 def create_allocation(data, parity, lock):
     if data + parity > total_data_parity_max:
         return "Data + Parity should be less than 46"
-    command = "./zbox newallocation   --data {} --parity {} --lock {} --size 4294967296".format(data, parity, lock)
+    command = "./zbox newallocation   --data {} --parity {} --lock {} --size 15589934592".format(data, parity, lock)
     logger.info(f"Zbox command to create allocation:  {command}")
 
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
@@ -111,7 +111,8 @@ def create_allocation_upload_file(data, parity, lock=10):
             row = {
                 "Data": data,
                 "Parity": parity,
-                "File Size": float(size_in_bytes/ (1024 ** 2)),
+                "File Size": float(size_in_bytes/ (1024 ** 3)),
+                "File Unit": "GB",
                 "Time": str(float(end - start)) + "seconds",
                 # "Allocation": allocationId,
             }
@@ -228,4 +229,4 @@ if __name__ == "__main__":
             writer.writerows(sorted_result)
 
         # call draw plot
-        draw_plot(data,parity=parity, blobber=max_blobbers)
+        # draw_plot(data,parity=parity, blobber=max_blobbers)
